@@ -123,9 +123,13 @@ html
     font-family 'Avenir', Helvetica, Arial, sans-serif
     -webkit-font-smoothing antialiased
     -moz-osx-font-smoothing grayscale
-    text-align center
     color #2c3e50
     height 100%
+
+    .float-left
+        float: left
+    .float-right
+        float: right
 
     .app-view
         position absolute
@@ -134,7 +138,6 @@ html
         bottom 0
         left 0
         -webkit-overflow-scrolling touch
-        background white
 
         &::-webkit-scrollbar
             width 0

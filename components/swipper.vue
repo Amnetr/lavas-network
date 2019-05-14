@@ -37,6 +37,6 @@ export default {
 
 <style lang="stylus" scoped>
 .swipper-img
-  background-image: url('../static/img/timg.jpeg')
+  background-image: url('../static/img/timg.png')
   height: 8rem
 </style>
