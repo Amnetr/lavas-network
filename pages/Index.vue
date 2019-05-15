@@ -1,7 +1,7 @@
 <template>
   <div class="main-container">
     <div class="user-info">
-      <span>欢迎，xxx</span>
+      <span>欢迎，{{userInfo.name}}</span>
       <span style="position: absolute;right: 0;text-decoration: underline">注销</span>
     </div>
     <div class="swipper-container">
@@ -10,54 +10,62 @@
     <div class="source-container">
       <div class="source-title">
         <span>我的资源</span>
-        <span>[北京一]</span>
+        <span>[{{userInfo.area}}]</span>
       </div>
-      <div class="my-source" v-for="source in sourceList">
+      <div class="my-source" v-for="source in userInfo.sourceList">
         <span>{{source.name}}</span>
         <span>{{source.value}}</span>
       </div>
     </div>
-    <div class="nav-container"></div>
+    <div class="nav-container">
+      <serviceNav></serviceNav>
+    </div>
     <div class="chart-container"></div>
   </div>
 </template>
 
 <script>
 import swipper from '@/components/swipper.vue'
+import serviceNav from '@/components/serviceNav.vue'
 export default {
   name: 'index',
   data () {
     return {
-      sourceList: [
-        {
-          name: '账户余额',
-          value: '1923.00'
-        }, {
-          name: '弹性云服务器',
-          value: '2'
-        }, {
-          name: '弹性公网IP',
-          value: '5'
-        }, {
-          name: '虚拟私有云VPC',
-          value: '1'
-        }, {
-          name: '云硬盘',
-          value: '0'
-        }, {
-          name: '云硬盘备份',
-          value: '0'
-        }, {
-          name: '云数据库RDS',
-          value: '1'
-        }
-      ]
+      userInfo: {
+        name: 'LJH',
+        area: '北京一',
+        sourceList: [
+          {
+            name: '账户余额',
+            value: '1923.00'
+          }, {
+            name: '弹性云服务器',
+            value: '2'
+          }, {
+            name: '弹性公网IP',
+            value: '5'
+          }, {
+            name: '虚拟私有云VPC',
+            value: '1'
+          }, {
+            name: '云硬盘',
+            value: '0'
+          }, {
+            name: '云硬盘备份',
+            value: '0'
+          }, {
+            name: '云数据库RDS',
+            value: '1'
+          }
+        ]
+      }
     }
   },
   methods: {
   },
   components: {
-    swipper
+    swipper,
+    serviceNav
   }
 }
 </script>
@@ -113,8 +121,6 @@ export default {
       margin-right: 0.4rem
 .nav-container
   width: 100%
-  height: 40%
-  background-color: green
   margin-bottom: 0.5rem
 .chart-container
   width: 100%
