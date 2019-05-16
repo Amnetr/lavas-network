@@ -17,6 +17,7 @@
     "dependencies": {
         "array-includes": "^3.0.3",
         "array.prototype.find": "^2.0.4",
+        "echarts": "^4.2.1",
         "element-ui": "^2.8.2",
         "es6-promise": "^4.1.1",
         "express": "^4.0.0",

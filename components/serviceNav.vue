@@ -25,7 +25,12 @@ export default {
       this.$refs['service-' + index][0].style.backgroundColor = '#eeeeee'
     },
     touchEnd (index, event) {
+      let pathArray = ['vgws', 'blacklist', 'whitelist',
+        'tcp', 'video', 'IPSecVPN服务', '网站过滤服务']
       this.$refs['service-' + index][0].style.backgroundColor = 'white'
+      this.$router.push({
+        path: '/' + pathArray[index]
+      })
     }
   }
 }

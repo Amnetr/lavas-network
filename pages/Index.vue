@@ -20,13 +20,16 @@
     <div class="nav-container">
       <serviceNav></serviceNav>
     </div>
-    <div class="chart-container"></div>
+    <div class="chart-container">
+      <myChart></myChart>
+    </div>
   </div>
 </template>
 
 <script>
 import swipper from '@/components/swipper.vue'
 import serviceNav from '@/components/serviceNav.vue'
+import myChart from '@/components/myChart.vue'
 export default {
   name: 'index',
   data () {
@@ -65,7 +68,8 @@ export default {
   },
   components: {
     swipper,
-    serviceNav
+    serviceNav,
+    myChart
   }
 }
 </script>
@@ -124,8 +128,7 @@ export default {
   margin-bottom: 0.5rem
 .chart-container
   width: 100%
-  background-color: yellow
-  height: 30%
+  position: relative
 .bg-purple
   background: #eee
 .grid-content
