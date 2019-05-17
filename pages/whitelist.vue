@@ -11,7 +11,7 @@
       size="mini"
       @click="createList"
       :disabled="showConfig"
-    >创建黑名单</el-button>
+    >创建白名单</el-button>
     <div class="table-container">
       <el-table
         :data="tableData.filter(data => !search || data.id.toLowerCase().includes(search.toLowerCase())

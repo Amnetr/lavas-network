@@ -11,12 +11,12 @@
       size="mini"
       @click="createList"
       :disabled="showConfig"
-    >创建黑名单</el-button>
+    >创建虚拟网关</el-button>
     <div class="table-container">
       <el-table
         :data="tableData.filter(data => !search || data.id.toLowerCase().includes(search.toLowerCase())
         || data.status.toLowerCase().includes(search.toLowerCase())
-        || data.vgw.toLowerCase().includes(search.toLowerCase()))"
+        || data.area.toLowerCase().includes(search.toLowerCase()))"
         border
         style="width: 100%"
         size="small"
@@ -25,7 +25,7 @@
       >
         <el-table-column fixed prop="id" label="ID"></el-table-column>
         <el-table-column prop="status" label="状态"></el-table-column>
-        <el-table-column prop="vgw" label="虚拟网关"></el-table-column>
+        <el-table-column prop="area" label="可用区"></el-table-column>
         <el-table-column fixed="right" label="操作">
           <template slot-scope="scope">
             <span @click="stop(scope.row,scope.$index)" class="operationBtn">停用</span>
@@ -38,23 +38,48 @@
       <div id="myForm">
         <el-form
           :model="configData"
-          label-width="80px"
+          label-width="90px"
           class="demo-ruleForm"
           size="mini"
           label-position="left"
         >
-          <el-form-item label="名单名称" prop="id">
+          <el-form-item label="网关名称" prop="id" required>
             <el-input v-model="configData.id" autocomplete="off"></el-input>
           </el-form-item>
-          <el-form-item label="名单内容" prop="content">
-            <el-input type="textarea" v-model="configData.content"></el-input>
+          <el-form-item label="计费模式" prop="mode">
+            <el-radio-group v-model="configData.mode">
+              <el-radio label="按需计费"></el-radio>
+            </el-radio-group>
           </el-form-item>
-          <el-form-item label="虚拟网关" prop="vgw">
-            <el-select v-model="configData.vgw" placeholder="请选择虚拟网关">
-              <el-option label="vgw01" value="vgw01"></el-option>
-              <el-option label="vgw02" value="vgw02"></el-option>
-              <el-option label="vgw03" value="vgw03"></el-option>
-              <el-option label="vgw04" value="vgw04"></el-option>
+          <el-form-item label="区域" prop="vgw">
+            <el-radio-group v-model="configData.area">
+              <el-radio label="北京一"></el-radio>
+              <el-radio label="北京二"></el-radio>
+            </el-radio-group>
+          </el-form-item>
+          <el-form-item label="WAN口网卡" prop="wan">
+            <el-select v-model="configData.wan.vpc" placeholder="VPC">
+              <el-option label="vpc01" value="vpc01"></el-option>
+              <el-option label="vpc02" value="vpc02"></el-option>
+              <el-option label="vpc03" value="vpc03"></el-option>
+            </el-select>
+            <el-select v-model="configData.wan.staticip" placeholder="固定IP">
+              <el-option label="106.14.163.101" value="106.14.163.101"></el-option>
+            </el-select>
+            <el-select v-model="configData.wan.ip" placeholder="弹性公网IP">
+              <el-option label="180.76.0.1" value="180.76.0.1"></el-option>
+              <el-option label="180.76.0.2" value="180.76.0.2"></el-option>
+              <el-option label="180.76.0.3" value="180.76.0.3"></el-option>
+            </el-select>
+          </el-form-item>
+          <el-form-item label="LAN口网卡" prop="lan">
+            <el-select v-model="configData.lan.vpc" placeholder="VPC">
+              <el-option label="vpc01" value="vpc01"></el-option>
+              <el-option label="vpc02" value="vpc02"></el-option>
+              <el-option label="vpc03" value="vpc03"></el-option>
+            </el-select>
+            <el-select v-model="configData.lan.staticip" placeholder="固定IP">
+              <el-option label="106.14.163.101" value="106.14.163.101"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item>
@@ -74,27 +99,36 @@ export default {
       tableData: [{
         id: '1',
         status: '正常',
-        vgw: 'vgw01',
+        area: '北京一',
       }, {
         id: '2',
         status: '正常',
-        vgw: 'vgw02',
+        area: '北京一',
       }, {
         id: '3',
         status: '停用',
-        vgw: 'vgw01',
+        area: '北京二',
       }, {
         id: '4',
         status: '正常',
-        vgw: 'vgw03',
+        area: '北京一',
       }],
       search: '',
       showConfig: false,
       configData: {
         id: '',
-        content: '',
-        vgw: '',
-        status: '正常'
+        mode: '按需计费',
+        area: '北京一',
+        status: '正常',
+        wan: {
+          vpc: '',
+          staticip: '',
+          ip: ''
+        },
+        lan: {
+          vpc: '',
+          staticip: ''
+        }
       }
     }
   },
@@ -141,21 +175,30 @@ export default {
       this.showConfig = !this.showConfig
       this.configData = {
         id: '',
-        content: '',
-        vgw: '',
-        status: '正常'
+        mode: '按需计费',
+        area: '北京一',
+        status: '正常',
+        wan: {
+          vpc: '',
+          staticip: '',
+          ip: ''
+        },
+        lan: {
+          vpc: '',
+          staticip: ''
+        }
       }
       this.$message({
         type: 'success',
         message: '创建成功!'
-      })
+      });
     },
     stop (row, rowIndex) {
       this.tableData[rowIndex].status = '停用'
       this.$message({
         type: 'success',
         message: '停用成功!'
-      });
+      })
     },
     deleteRow (row, rowIndex) {
       this.tableData.splice(rowIndex, 1)

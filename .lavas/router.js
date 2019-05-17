@@ -2,44 +2,84 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
     
-import _15580076583059d49a922ebc8a6d77ca82c0a74289b98 from '@/pages/Appshell.vue';
+import _15580807592179d49a922ebc8a6d77ca82c0a74289b98 from '@/pages/Appshell.vue';
     
 
     
-import _1558007658305188f01c668c45dcf8004bd99e725d259 from '@/pages/blacklist.vue';
+import _1558080759217188f01c668c45dcf8004bd99e725d259 from '@/pages/blacklist.vue';
     
 
     
-import _1558007658305d2462dcf0c7beccd286c658e08187914 from '@/pages/Error.vue';
+import _1558080759217d2462dcf0c7beccd286c658e08187914 from '@/pages/Error.vue';
     
 
     
-import _155800765830567830448037326425509e44bce7632b7 from '@/pages/Index.vue';
+import _155808075921767830448037326425509e44bce7632b7 from '@/pages/Index.vue';
+    
+
+    
+import _155808075921741952aaa68f4e34029efa3f9196b395d from '@/pages/tcp.vue';
+    
+
+    
+import _155808075921755c04ab208ecdef82d4f29dfa70db1e1 from '@/pages/vgws.vue';
+    
+
+    
+import _1558080759217e257cf5bf646ae272479b7d0bd5e9ea2 from '@/pages/video.vue';
+    
+
+    
+import _155808075921789a347a9487ecb93ff80cb0a34d46d81 from '@/pages/whitelist.vue';
     
 
 
 let routes = [
     {
         "path": "/appshell",
-        "component": _15580076583059d49a922ebc8a6d77ca82c0a74289b98,
+        "component": _15580807592179d49a922ebc8a6d77ca82c0a74289b98,
         "meta": {},
         "name": "appshell"
     },
     {
         "path": "/blacklist",
-        "component": _1558007658305188f01c668c45dcf8004bd99e725d259,
+        "component": _1558080759217188f01c668c45dcf8004bd99e725d259,
         "meta": {},
         "name": "blacklist"
     },
     {
         "path": "/",
-        "component": _155800765830567830448037326425509e44bce7632b7,
+        "component": _155808075921767830448037326425509e44bce7632b7,
         "meta": {},
         "name": "index"
     },
     {
+        "path": "/tcp",
+        "component": _155808075921741952aaa68f4e34029efa3f9196b395d,
+        "meta": {},
+        "name": "tcp"
+    },
+    {
+        "path": "/vgws",
+        "component": _155808075921755c04ab208ecdef82d4f29dfa70db1e1,
+        "meta": {},
+        "name": "vgws"
+    },
+    {
+        "path": "/video",
+        "component": _1558080759217e257cf5bf646ae272479b7d0bd5e9ea2,
+        "meta": {},
+        "name": "video"
+    },
+    {
+        "path": "/whitelist",
+        "component": _155808075921789a347a9487ecb93ff80cb0a34d46d81,
+        "meta": {},
+        "name": "whitelist"
+    },
+    {
         "path": "/error",
-        "component": _1558007658305d2462dcf0c7beccd286c658e08187914,
+        "component": _1558080759217d2462dcf0c7beccd286c658e08187914,
         "meta": {},
         "name": "error",
         "alias": "*"
