@@ -1,7 +1,7 @@
 {
     "start_url": "/?utm_source=homescreen",
-    "name": "network-lavas",
-    "short_name": "network-lavas",
+    "name": "networkService",
+    "short_name": "Net-Service",
     "icons": [
         {
             "src": "img/icons/android-chrome-512x512.png",
