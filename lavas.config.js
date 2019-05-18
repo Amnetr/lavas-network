@@ -33,6 +33,9 @@ module.exports = {
         }
     },
     serviceWorker: {
+        globPatterns: [
+            '**/*.{html,js,css,eot,svg,ttf,woff}'
+        ],
         // If true, generate service-worker.js and sw-register.js
         // Default to `false`
         enable: true,
