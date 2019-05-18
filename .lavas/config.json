@@ -1,5 +1,5 @@
 {
-    "buildVersion": 1558166782133,
+    "buildVersion": 1558168928306,
     "build": {
         "ssr": false,
         "publicPath": "/",
@@ -26,7 +26,7 @@
     },
     "serviceWorker": {
         "enable": true,
-        "swDest": "/Volumes/myMac/workspace/network-lavas/dist/service-worker.js"
+        "swDest": "/Volumes/myMac/workspace/lavas-network/dist/service-worker.js"
     },
     "skeleton": {
         "enable": true,
