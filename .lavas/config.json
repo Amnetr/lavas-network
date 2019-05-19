@@ -1,5 +1,5 @@
 {
-    "buildVersion": 1558170431354,
+    "buildVersion": 1558245168946,
     "build": {
         "ssr": false,
         "publicPath": "/",
@@ -15,8 +15,8 @@
         "mode": "history",
         "base": "/",
         "pageTransition": {
-            "type": "fade",
-            "transitionClass": "fade"
+            "type": "slide",
+            "transitionClass": "slide"
         }
     },
     "errorHandler": {

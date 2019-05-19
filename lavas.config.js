@@ -28,8 +28,8 @@ module.exports = {
         mode: 'history',
         base: '/',
         pageTransition: {
-            type: 'fade',
-            transitionClass: 'fade'
+            type: 'slide',
+            transitionClass: 'slide'
         }
     },
     serviceWorker: {
